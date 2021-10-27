@@ -1,0 +1,208 @@
+<div class="dashboard">
+    <div class="parent">
+        <div class="heading">
+            <div class="header-box">
+                <img src="../../assets/img/icon.png" alt="TweetApp Icon" class="icon-image">
+                <h1>Tweet App</h1>
+            </div>
+        </div>
+        <div class="form">
+            <div class="form-box">
+                <div class="p-grid options">
+                    <div class="p-col-12 login-button">
+                        <p-selectButton class="login-option" [options]="loginOptions" (onChange)="resetForm()" [(ngModel)]="selectedOptions" optionLabel="label" optionValue="value"></p-selectButton>
+                    </div>
+                </div>
+                <div *ngIf="selectedOptions===0" class="login-form form-body">
+                    <form [formGroup]="loginForm">
+                        <div class="p-grid m-b-2">
+                            <div class="p-col-5 label">
+                                <strong>Login Id</strong><span class="required"> *</span>
+                            </div>
+                            <div class="p-col-1 label">
+                                <strong>:</strong>
+                            </div>
+                            <div class="p-col-6">
+                                <input type="email" pInputText placeholder="login id" formControlName="loginId">
+                            </div>
+                        </div>
+                        <div class="p-grid m-b-2">
+                            <div class="p-col-5 label">
+                                <strong>Password</strong><span class="required"> *</span>
+                            </div>
+                            <div class="p-col-1 label">
+                                <strong>:</strong>
+                            </div>
+                            <div class="p-col-6">
+                                <input type="password" pInputText placeholder="password" formControlName="password">
+                            </div>
+                        </div>
+                        <div class="p-grid">
+                            <div class="p-col-12 label button-row">
+                                <button [disabled]="!loginForm.valid" pButton pRipple type="button" label="Log In" class="p-button-rounded" (click)="onSignIn()"></button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div *ngIf="selectedOptions===1" class="signup-form form-body">
+                    <form [formGroup]="signUpForm">
+                        <div class="p-grid m-b-2">
+                            <div class="p-col-5 label">
+                                <strong>First Name</strong><span class="required"> *</span>
+                            </div>
+                            <div class="p-col-1 label">
+                                <strong>:</strong>
+                            </div>
+                            <div class="p-col-6">
+                                <input type="text" pInputText placeholder="first name" formControlName="firstName">
+                            </div>
+                        </div>
+                        <div class="p-grid m-b-2">
+                            <div class="p-col-5 label">
+                                <strong>Last Name</strong><span class="required"> *</span>
+                            </div>
+                            <div class="p-col-1 label">
+                                <strong>:</strong>
+                            </div>
+                            <div class="p-col-6">
+                                <input type="text" pInputText placeholder="last name" formControlName="lastName">
+                            </div>
+                        </div>
+                        <div class="p-grid m-b-2">
+                            <div class="p-col-5 label">
+                                <strong>Email</strong><span class="required"> *</span>
+                            </div>
+                            <div class="p-col-1 label">
+                                <strong>:</strong>
+                            </div>
+                            <div class="p-col-6">
+                                <input type="email" pInputText placeholder="email" formControlName="email">
+                            </div>
+                        </div>
+                        <div class="p-grid m-b-2">
+                            <div class="p-col-5 label">
+                                <strong>Login id</strong><span class="required"> *</span>
+                            </div>
+                            <div class="p-col-1 label">
+                                <strong>:</strong>
+                            </div>
+                            <div class="p-col-6">
+                                <input type="text" pInputText placeholder="login id" formControlName="loginId">
+                            </div>
+                        </div>
+                        <div class="p-grid m-b-2">
+                            <div class="p-col-5 label">
+                                <strong>Password</strong><span class="required"> *</span>
+                            </div>
+                            <div class="p-col-1 label">
+                                <strong>:</strong>
+                            </div>
+                            <div class="p-col-6">
+                                <input type="password" pInputText placeholder="password" formControlName="password">
+                            </div>
+                        </div>
+                        <div class="p-grid m-b-2">
+                            <div class="p-col-5 label">
+                                <strong>Confirm Password</strong><span class="required"> *</span>
+                            </div>
+                            <div class="p-col-1 label">
+                                <strong>:</strong>
+                            </div>
+                            <div class="p-col-6">
+                                <input type="password" pInputText placeholder="confirm password" formControlName="confirmPassword">
+                            </div>
+                        </div>
+                        <div class="p-grid m-b-2">
+                            <div class="p-col-5 label">
+                                <strong>Contact number</strong><span class="required"> *</span>
+                            </div>
+                            <div class="p-col-1 label">
+                                <strong>:</strong>
+                            </div>
+                            <div class="p-col-6">
+                                <p-inputMask mask="9999999999" placeholder="contact number" formControlName="phoneNumber"></p-inputMask>
+                            </div>
+                        </div>
+                        <div class="p-grid">
+                            <div class="p-col-12 label button-row">
+                                <button [disabled]="!signUpForm.valid" pButton pRipple type="button" label="Sign Up" class="p-button-rounded" (click)="onSignUp()"></button>
+                            </div>
+                        </div>
+                        <div class="p-grid" *ngIf="signUpForm.controls['password'].errors?.minlength">
+                            <div class="p-col-12 label required">
+                                Minimum password length is 8.
+                            </div>
+                        </div>
+                        <div class="p-grid" *ngIf="signUpForm.controls['password'].errors?.passwordmismatch">
+                            <div class="p-col-12 label required">
+                                Password mismatch.
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div *ngIf="selectedOptions===2" class="password-form form-body">
+                    <form [formGroup]="forgotPasswordForm">
+                        <div class="p-grid m-b-2">
+                            <div class="p-col-5 label">
+                                <strong>Login Id</strong><span class="required"> *</span>
+                            </div>
+                            <div class="p-col-1 label">
+                                <strong>:</strong>
+                            </div>
+                            <div class="p-col-6">
+                                <input type="email" pInputText placeholder="login id" formControlName="loginId">
+                            </div>
+                        </div>
+                        <div class="p-grid m-b-2">
+                            <div class="p-col-5 label">
+                                <strong>Password</strong><span class="required"> *</span>
+                            </div>
+                            <div class="p-col-1 label">
+                                <strong>:</strong>
+                            </div>
+                            <div class="p-col-6">
+                                <input type="password" pInputText placeholder="password" formControlName="password" (keyup)="checkForgotPass()">
+                            </div>
+                        </div>
+                        <div class="p-grid m-b-2">
+                            <div class="p-col-5 label">
+                                <strong>Confirm Password</strong><span class="required"> *</span>
+                            </div>
+                            <div class="p-col-1 label">
+                                <strong>:</strong>
+                            </div>
+                            <div class="p-col-6">
+                                <input type="password" pInputText placeholder="confirm password" formControlName="confirmPassword" (keyup)="checkForgotPass()">
+                            </div>
+                        </div>
+                        <div class="p-grid" *ngIf="forgotPasswordForm.controls['password'].errors?.minlength">
+                            <div class="p-col-12 label required">
+                                Minimum password length is 8.
+                            </div>
+                        </div>
+                        <div class="p-grid" *ngIf="forgotPasswordForm.controls['password'].errors?.passwordmismatch">
+                            <div class="p-col-12 label required">
+                                Password mismatch.
+                            </div>
+                        </div>
+                        <div class="p-grid">
+                            <div class="p-col-12 label button-row">
+                                <button [disabled]="!forgotPasswordForm.valid" pButton pRipple type="button" label="Change Password" class="p-button-rounded" (click)="onChangePassword()"></button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="forgot-password" *ngIf="selectedOptions===0 || selectedOptions===1">
+                    <div class="p-grid">
+                        <div class="p-col-12">
+                            <a href="javascript:void(0);" (click)="onForgotPasswordClick()">Forgot Password?</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<p-dialog [header]="dialogBox.title" [(visible)]="dialogBox.visibility" [style]="{width: '50vw'}" [baseZIndex]="10000" [ngClass]="{ error: dialogBox.title==='Error', success: dialogBox.title==='Success' }">
+    <p>{{dialogBox.message}}</p>
+</p-dialog>

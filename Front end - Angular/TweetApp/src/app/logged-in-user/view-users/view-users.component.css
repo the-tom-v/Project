@@ -1,0 +1,35 @@
+.user {
+    border: 1px solid black;
+    padding: 10px;
+    line-height: 30px;
+    border-radius: 20px;
+    margin-bottom: 20px;
+    height: 100px;
+    display: flex;
+    width: 350px;
+    margin-right: 20px;
+}
+
+.profile-photo {
+    height: 100%;
+    width: 100px;
+    margin-right: 20px;
+}
+
+.user-details {
+    margin: auto 0px;
+}
+
+.view-all-users {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0px 60px;
+}
+
+.user-photo {
+    padding: 0px 7px;
+}
+
+.pi-user {
+    font-size: 90px;
+}

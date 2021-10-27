@@ -1,0 +1,65 @@
+<div class="parent">
+    <div class="parent-body">
+        <div class="header">
+            <img src="../../assets/img/icon.png" alt="TweetApp Icon" class="logo">
+            <h1>Tweet App</h1>
+            <ul class="nav-link">
+                <li>
+                    <a href="javascript:void(0)" (click)="onNavigationClick(1)" [ngClass]="{ selected: userAction===1 }">View My Tweets</a>
+                </li>
+                <li>
+                    <a href="javascript:void(0)" (click)="onNavigationClick(2)" [ngClass]="{ selected: userAction===2 }">View Tweets</a>
+                </li>
+                <li>
+                    <a href="javascript:void(0)" (click)="onNavigationClick(3)" [ngClass]="{ selected: userAction===3 }">View Users</a>
+                </li>
+                <li>
+                    <a href="javascript:void(0)" (click)="onNavigationClick(5)" [ngClass]="{ selected: userAction===5 }">Log out</a>
+                </li>
+            </ul>
+        </div>
+        <div class="body">
+            <ng-template [ngIf]="userAction===1">
+                <div class="body-container">
+                    <div class="user-profile">
+                        <div class="user">
+                            <div class="profile-photo">
+                                <i class="pi pi-user"></i>
+                            </div>
+                            <div class="user-details">
+                                <h2>{{userName}}</h2>
+                                <h3>@{{userLoginId}}</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="user-tweets">
+                        <div class="post-tweet">
+                            <div class="flex-display">
+                                <textarea [rows]="7" [cols]="60" pInputTextarea [autoResize]=true placeholder="Type your tweet here." maxlength=144 [(ngModel)]="newTweet"></textarea>
+                            </div>
+                            <div class="flex-display m-t">
+                                <textarea [rows]="1" [cols]="60" pInputTextarea [autoResize]=true placeholder="Hash tag (optional)." maxlength=50 [(ngModel)]="hashTag"></textarea>
+                            </div>
+                            <div class="flex-display">
+                                <button [ngClass]="{ 'disable': newTweet.length===0 }" [disabled]="newTweet.length===0" pButton pRipple type="button" label="Post Tweet" class="p-button-rounded" (click)="postTweet()"></button>
+                            </div>
+                        </div>
+                        <div class="view-tweet">
+                            <app-view-tweets [tweetData]="tweetData" [userId]="userId" [userLoginId]="userLoginId" [module]="'myTweet'"></app-view-tweets>
+                        </div>
+                    </div>
+                </div>
+            </ng-template>
+            <ng-template [ngIf]="userAction===2">
+                <div class="view-all-tweet">
+                    <app-view-tweets [tweetData]="tweetData" [userId]="userId" [userLoginId]="userLoginId" [module]="'allTweet'"></app-view-tweets>
+                </div>
+            </ng-template>
+            <ng-template [ngIf]="userAction===3">
+                <div class="view-all-users">
+                    <app-view-users [currentUser]="userId"></app-view-users>
+                </div>
+            </ng-template>
+        </div>
+    </div>
+</div>

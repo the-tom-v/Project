@@ -1,0 +1,22 @@
+<div class="view-all-users">
+    <div class="users" *ngFor="let user of userData">
+        <div class="user">
+            <div class="profile-photo">
+                <div class="user-photo">
+                    <i class="pi pi-user"></i>
+                </div>
+            </div>
+            <div class="user-details">
+                <div>
+                    <strong>Username : {{user.firstname}} {{user.lastname}}</strong>
+                </div>
+                <div>
+                    <strong>Login Id : {{user.loginid}}</strong>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div *ngIf="userData.length === 0">
+        <h3>No users found!!!!</h3>
+    </div>
+</div>

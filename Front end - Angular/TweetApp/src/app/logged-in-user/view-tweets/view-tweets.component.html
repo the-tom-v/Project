@@ -1,0 +1,29 @@
+<div class="view-my-tweets" [ngClass]="{ alltweet: module==='allTweet' }">
+    <div class="main-tweets" *ngFor="let tweets of tweetData; let i = index">
+        <div class="main-tweet tweet">
+            <strong>@{{tweets.loginId}}</strong> <span class="user-name">{{tweets.userName}} &nbsp;.</span>
+            <strong class="time">{{tweets.postTime | date:'medium'}}</strong>
+            <br> {{tweets.tweet}}
+            <span *ngIf="tweets.hashTag"><br> #{{tweets.hashTag}}</span>
+            <br> <i class="pi pi-thumbs-up" [ngClass]="{ liked: tweets.isLiked===true }" (click)="onTweetLike(tweets, i, false, -1)"></i>&nbsp;{{tweets.noOfLikes}} Likes
+            <br>
+            <hr> <textarea id="{{'id_'+i}}" [rows]="3" [cols]="40" pInputTextarea [autoResize]=true placeholder="Reply" maxlength=144></textarea>
+            <br> <strong class="reply" (click)="onReply(tweets, 'id_'+i)"><i class="pi pi-reply"></i>&nbsp;Reply</strong>
+        </div>
+        <div class="tweet-replies">
+            <div class="reply-tweets" *ngFor="let replyTweets of tweets.replyTweet; let replyIndex = index">
+                <div class="reply-tweet tweet">
+                    <strong>Replied to @{{replyTweets.replyId}}</strong> <br>
+                    <strong>@{{replyTweets.loginId}}</strong> <span class="user-name">{{replyTweets.userName}} &nbsp;.</span>
+                    <strong class="time">{{replyTweets.postTime | date:'medium'}}</strong>
+                    <br> {{replyTweets.tweet}}
+                    <span *ngIf="replyTweets.hashTag"><br> #{{replyTweets.hashTag}}</span>
+                    <br> <i class="pi pi-thumbs-up" [ngClass]="{ liked: replyTweets.isLiked===true }" (click)="onTweetLike(replyTweets, i, true, replyIndex)"></i>&nbsp;{{replyTweets.noOfLikes}} Likes
+                    <br>
+                    <hr> <textarea id="{{'id_'+i+'_'+replyIndex}}" [rows]="3" [cols]="40" pInputTextarea [autoResize]=true placeholder="Reply" maxlength=144></textarea>
+                    <br> <strong class="reply" (click)="onReply(replyTweets, 'id_'+i+'_'+replyIndex)"><i class="pi pi-reply"></i>&nbsp;Reply</strong>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
