@@ -1,0 +1,164 @@
+.parent {
+    height: auto;
+    width: auto;
+    background-image: linear-gradient(to bottom right, rgb(33, 176, 233), rgb(247, 124, 9));
+    display: flex;
+    min-height: 100vh;
+    overflow-y: hidden;
+}
+
+.disable {
+    opacity: 0.5;
+}
+
+.header {
+    width: 96%;
+    height: auto;
+    padding: 0% 2%;
+    display: flex;
+    align-items: center;
+    color: #000;
+}
+
+.header h1 {
+    font-size: 45px;
+}
+
+.parent-body {
+    margin: 2%;
+    width: 98%;
+    height: auto;
+}
+
+.logo {
+    height: 40px;
+    width: auto;
+    margin-right: 10px;
+    border-radius: 10px;
+    border: 1px solid black;
+    background-color: #fff;
+    padding: 3px;
+}
+
+.nav-link {
+    margin-right: 0%;
+    margin-left: auto;
+    display: flex;
+    list-style: none;
+}
+
+.nav-link li {
+    font-size: 20px;
+    margin-right: 30px;
+}
+
+.nav-link a {
+    text-decoration: none;
+    padding-bottom: 2px;
+    transition: border 0.2s;
+}
+
+.nav-link a:hover,
+.nav-link a:visited,
+.nav-link a:active,
+.nav-link a:link {
+    color: #000;
+    border-bottom: 1px solid rgba(255, 255, 255, 0);
+}
+
+.nav-link a:hover {
+    border-bottom: 2px solid black;
+}
+
+.nav-link .selected {
+    border-bottom: 2px solid black !important;
+}
+
+.body-container {
+    width: 90%;
+    height: auto;
+    display: flex;
+    padding: 5%;
+}
+
+.user-profile {
+    width: 40%;
+    height: 150px;
+}
+
+.profile-photo {
+    width: 20%;
+    display: flex;
+    align-items: center;
+}
+
+.pi-user {
+    font-size: 90px;
+}
+
+.user-details {
+    width: auto;
+    padding-left: 5%;
+    padding-top: 5%;
+}
+
+.user {
+    border: 1px dashed black;
+    border-radius: 20px;
+    padding-left: 10%;
+    width: 90%;
+    height: 100%;
+    display: flex;
+}
+
+.user-tweets {
+    width: 56%;
+    height: auto;
+    padding: 0% 2%;
+}
+
+.post-tweet {
+    width: 100%;
+    height: 250px;
+}
+
+.view-tweet {
+    width: 100%;
+    height: auto;
+    padding: 0% 5%;
+}
+
+:host::ng-deep .p-inputtextarea {
+    margin-left: auto;
+    margin-right: 0px;
+    border-radius: 10px;
+}
+
+:host::ng-deep .p-button {
+    margin-top: 15px;
+    height: 40px;
+    width: 100px;
+    margin-left: auto;
+    margin-right: 0px;
+    border-radius: 10px;
+    background-color: rgb(129, 252, 7);
+    font-size: 15px;
+    font-weight: bold;
+    color: black;
+}
+
+.flex-display {
+    display: flex;
+}
+
+.m-t {
+    margin-top: 10px;
+}
+
+.view-all-tweet {
+    padding: 0px 300px;
+}
+
+.view-all-users {
+    padding: 0px;
+}

@@ -1,0 +1,51 @@
+.liked {
+    color: greenyellow;
+}
+
+.tweet {
+    border: 1px solid black;
+    padding: 10px;
+    line-height: 30px;
+    border-radius: 20px;
+    margin-bottom: 20px;
+}
+
+.tweet .time {
+    float: right;
+}
+
+.tweet .user-name {
+    margin-left: 180px;
+}
+
+:host::ng-deep .p-inputtextarea {
+    margin-top: 10px;
+}
+
+.reply {
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 5px 10px;
+}
+
+.pi-thumbs-up,
+.reply {
+    cursor: pointer;
+}
+
+hr {
+    border-color: black;
+    background-color: black;
+}
+
+.tweet-replies {
+    padding-left: 100px;
+}
+
+.alltweet .user-name {
+    margin-left: 250px;
+}
+
+.alltweet .tweet-replies {
+    padding-left: 150px;
+}
